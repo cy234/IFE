@@ -1,0 +1,21 @@
+html *{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 70%;
+    margin-left: 10px;
+    
+}
+
+li{
+    display: inline-block;
+    margin-right: 20px ;
+}
+h2{
+    margin: 20px 0;
+}
+p{
+    margin: 15px 0;
+}

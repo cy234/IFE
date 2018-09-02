@@ -1,0 +1,57 @@
+.demand1{
+    margin-bottom: 10px;
+    height: 200px; 
+    border: 1px solid #dddddd;
+ }
+ .left1{
+     display: inline-block;
+     vertical-align: top;
+     width: 30%;
+     background: #66bb33;
+     height: 200px;
+ }
+ .right1{
+     display: inline-block;
+     vertical-align: top;
+     height: 200px;
+    
+ }
+ /* flex推荐 */
+ .demand2{
+     margin-bottom: 10px;
+     height: 200px; 
+     border: 1px solid #dddddd;
+     display:flex;
+     flex-flow: row;
+     /* align-items: flex-start; /* 设置左右盒子高度自动 否则为等高*/ 
+  }
+ .left2{
+    
+    height: 200px;
+    width: 360px;
+ }
+ .right2{
+     flex: 1; /* 填充满剩余空间 */
+     background: #66bb33;
+     height: 200px;
+ }
+ /* grid */
+ .demand3{
+     margin-bottom: 10px;
+     height: 200px; 
+     border: 1px solid #dddddd;
+     display: grid;
+     grid-template-columns: auto 360px;
+     
+ }
+ 
+ .left3{
+    height:200px;
+    background: #66bb33;
+    grid-column: 1;
+ }
+ .right3{
+     height: 200px;
+     grid-column: 2;
+   
+ }

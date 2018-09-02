@@ -1,0 +1,52 @@
+
+.demand1{
+   margin-bottom: 10px;
+   height: 200px; 
+   border: 1px solid #dddddd;
+
+}
+.left1{
+    background: #66bb33;
+    width: 30%;
+    float: left;
+    height: 200px;
+}
+.right1{
+    float: left;
+    width: 70%;
+    height: 200px;
+}
+.demand2{
+    margin-bottom: 10px;
+    height: 200px; 
+    border: 1px solid #dddddd;
+    overflow: hidden;
+ }
+.left2{
+    /* width: 360px; */
+    float: left;
+    height: 200px;
+    
+}
+.right2{
+    background: #66bb33;
+    margin-left: 360px;
+    height: 200px;
+}
+.demand3{
+    margin-bottom: 10px;
+    height: 200px; 
+    border: 1px solid #dddddd;
+    overflow: hidden;  
+}
+
+.left3{
+   margin-right: 360px; 
+   height:200px;
+   background: #66bb33;
+}
+.right3{
+    float: right;
+    height: 200px;
+   
+}

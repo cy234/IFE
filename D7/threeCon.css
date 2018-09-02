@@ -1,0 +1,218 @@
+/*   float */
+/* .demand1{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;   
+}
+.left1{
+    float: left;
+    width: 200px;
+    background: rgb(255, 0, 98);
+    height: 200px;
+}
+.right1{
+    float: right;
+    width: 300px;
+    background: yellow;
+    height: 200px;
+}
+.middle1{
+    margin-left: 200px;
+    margin-right: 300px;
+} */
+
+
+
+/* float+ BFC */
+/* .demand2{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;  
+}
+.left2{
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: yellow;
+}
+.middle2{
+    float: left;
+    width: 800px;
+    height: 200px;
+}
+.right2{
+   height: 200px;
+   background: rgb(255, 0, 98);
+   overflow: hidden;  
+} */
+
+
+/* 圣杯 float margin负值  position */
+/* .demand1{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;   
+    padding-left: 200px;
+    padding-right: 300px;
+}
+.left1{
+    float: left;
+    position: relative;
+    left: -200px;
+    width: 200px;
+    height: 200px;
+    margin-left: -100%;
+    background: rgb(255, 0, 98);
+}
+.right1{
+    float: left;
+    right: -300px;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin-left: -300px;
+    background: yellow;
+}
+.middle1{
+    float: left;
+    position: relative;
+    width: 100%;
+    height:  200px;
+} */
+
+
+/* 双飞翼布局  float margin */
+/* .demand1{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;   
+}
+.left1{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: -100%;
+    background: rgb(255, 0, 98);
+}
+.right1{
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin-left: -300px;
+    background: yellow;
+}
+.middle1{
+    width: 100%;
+    height:  200px;
+    margin-left: 200px;
+    margin-right: 300px;
+}
+.main{
+    float: left;
+    width: 100%;
+   
+} */
+
+
+/* 绝对定位布局 position+ margin */
+
+.demand1{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px; 
+    position: relative;
+    /* overflow: hidden;   */
+}
+.left1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: rgb(255, 0, 98);
+}
+.right1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 200px;
+    background: yellow;
+}
+.middle1{
+    width: 100%;
+    height:  200px;
+    margin-left: 200px;
+    margin-right: 300px;
+}
+
+
+/* flex */
+/* .demand2{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;  
+    display: flex;
+}
+.left2{
+
+    width: 200px;
+    height: 200px;
+    background: yellow;
+    
+}
+.middle2{
+   
+    width: 800px;
+    height: 200px;
+}
+.right2{
+   flex: 1;
+   height: 200px;
+   background: rgb(255, 0, 98);
+   
+}  */
+
+/* 表格布局 table */
+/* .demand2{
+    height: 200px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;  
+    display: table;
+    width: 100%;
+}
+.left2{
+
+    width: 200px;
+    height: 200px;
+    background: yellow;
+    display: table-cell;
+}
+.middle2{
+    display: table-cell;
+    width: 800px;
+    height: 200px;
+}
+.right2{
+   height: 200px;
+   background: rgb(255, 0, 98);
+   display: table-cell;
+}  */
+
+/* grid 网格布局 */
+.demand2{
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;  
+    display: grid;
+    grid-template-rows: 200px;  /* 行高 */
+    grid-template-columns: 200px 800px auto; /* 设置列属性 */
+}
+.left2{    
+    background: yellow;    
+}
+.right2{
+   background: rgb(255, 0, 98);
+} 
+
+
+

@@ -1,0 +1,562 @@
+body {
+    font-family: PingFang SC;
+    margin: 0;
+    width: 1600px;
+}
+
+header {
+    height: 990px;
+}
+
+header .background1 {
+    position: relative;
+    width: 1600px;
+    height: 990px;
+}
+
+.background1 img{
+    z-index: -2;
+    width: 100%;
+    height: 990px;
+    position: absolute;
+    top: 0;
+}
+
+header .cover1{
+    z-index: -1;
+    width: 1600px;
+    height: 990px;
+    background: black;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+header .title h1 {
+    color: white;
+    font-size: 62px;
+    font-weight: 100;
+    position: relative;
+    top: -800px;
+    margin-top: 0;
+    padding-left: 640px;
+    opacity: 0.9;
+}
+
+header .title p {
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    position: relative;
+    top: -780px;
+    padding-left: 415px;
+    width: 730px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.account {
+    width: 970px;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+    top: -690px;
+    color: white;
+    border: 1px solid rgb(255,255,255,0.2);
+    z-index: 1;
+}
+
+.account h4 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.account p {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    margin-top: 0;
+}
+
+.account input {
+    /* position: relative; */
+    
+    height: 46px;
+    width: 270px;
+    padding-left: 20px;
+    margin-top: 25px;
+    margin-right: 20px;
+    background: none;
+    color: white;
+    font-size: 14px;
+    border: 1px solid rgb(255,255,255,0.2);   
+}
+
+.account input:nth-of-type(1) {
+    margin-left: 100px;
+}
+
+.account input:nth-of-type(3) {
+    width: 125px;
+    height: 50px;
+    background: white;
+    color: black;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+    border: 2px;
+    letter-spacing: 2px;
+}
+
+.account input::placeholder {
+    opacity: 0.3;
+}
+
+#part1 {
+    height: 700px;
+}
+
+#part1 .title1 {
+   
+    text-align: center;
+}
+
+.title1 p:nth-of-type(1) {
+    margin-top: 90px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.title1 p:nth-of-type(2) {
+    margin-top: 30px;
+    font-size: 42px;
+    font-weight: lighter;
+}
+ 
+#part1 .features {
+    width: 1030px;
+    margin: 0 auto;
+
+}
+
+.feature {
+    width: 515px;
+    height: 160px;
+    float: left;
+}
+
+.feature img {
+    float: left;
+    margin: 25px 25px 100px 0;
+}
+
+.feature p {
+    font-weight: lighter;
+}
+
+#part2 {
+    height: 800px;
+    width: 1600px;
+    position: relative;
+    color: white;
+}
+
+#part2 > img {
+    z-index: -2;
+    position: absolute;
+    left: 0px;
+
+}
+
+#part2 .cover2 {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    background: black;
+    opacity: 0.6;
+    height: 800px;
+    width:   100%;
+}
+
+ #part2 .title2 {
+     float: left;
+ }
+ 
+ .title2 {
+     margin-left: 315px;
+     margin-top: 140px;
+ }
+
+ .title2 h1 {
+    font-size: 42px;
+    font-weight: 100;
+    opacity: 0.9;
+ }
+
+ .title2 p {
+    font-size: 18px;
+    font-weight: 100;
+    opacity: 0.5;
+ }
+
+ .title2 input {
+     width: 236px;
+     height: 60px;
+     font-size: 12px;
+     font-weight: 400;
+     letter-spacing: 2px;
+     border: 1px solid rgb(255,255,255,0.4);
+     margin-right: 23px;
+ }
+
+ .title2 input:nth-of-type(2) {
+     background: none;
+     color: white;
+ }
+
+.screen {
+    width: 646px;
+    height: 600px;
+    float: right;
+    border: 1px solid rgb(255,255,255,0.5);
+    border-radius: 60px 0 0 60px;
+    margin-top: 100px;
+}
+
+.screen img {
+    margin: 30px 0  30px 60px;
+}
+
+#part3 {
+    width: 1600px;
+    height: 480px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#part3 h2 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 42px;
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+#part3 .logos {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+#part3 .logo {
+    width: 260px;
+    float: left;
+    margin-right: 80px;
+}
+
+.logo .wordart {
+   text-align: center;
+   width: 100%;
+   
+}
+
+.logo p {
+    text-align: center;
+    margin-top: 35px;
+    font-size: 16px;
+    color: #838383;
+    font-weight: lighter;
+    line-height: 1.5em;
+}
+ 
+#part4 {
+    width: 1600px;
+    height: 1000px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#part4 .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 976px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+
+#part4 .container img:nth-of-type(1) {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#part4 .container  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 70px;
+}
+
+#part4 .container  p {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #838383;
+    font-weight: lighter;
+}
+
+
+#part4 .container .tip1 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#part4 .container  .tip2 {
+    position: absolute;
+    left: 0px;
+    top: 430px;
+}
+
+#part4 .container img:nth-of-type(2) {
+    position: absolute;
+    right: 0px;
+    top: 430px;
+}
+
+#part5 {
+    height: 1085px;
+    width: 1600px;
+    border-bottom: 1px solid #eeeeee;
+    text-align: center;
+}
+
+#part5 .title h1 {
+    font-weight: lighter;
+    font-size: 42px; 
+    margin-top: 100px;
+    margin-bottom: 18px;
+}
+
+#part5 .title p {
+    font-weight: lighter;
+    color: #838383;
+    font-size: 18px;
+}
+
+.team {
+    width: 970px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.figure {
+    margin-top: 65px;
+    width: 470px;
+    height: 340px;
+    position: relative;
+}
+
+.figure img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.figure .cover3 {
+    position: absolute;
+    width: 470px;
+    text-align: center;
+    height: 340px;
+    background: black;
+    opacity: 0;
+    z-index: 1;
+}
+
+.figure .cover3 h3 {
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    z-index: 1;
+    margin-top: 110px;
+    font-weight: lighter;
+}
+
+.figure .cover3 p {
+    width: 100%;
+    font-size: 12px;
+    color: white; 
+    opacity: 0.5;
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+.figure .circle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(255,255,255,0.5);
+    border-radius: 50px;
+    margin: 20px;
+    display: inline-block;
+}
+
+/* 加背景图片居中不平铺 */
+.figure .cover3 .circle:nth-of-type(1) {
+    background: url(./image/Facebook\ Icon.png) no-repeat center;
+}
+
+.figure  .cover3 .circle:nth-of-type(2) {
+    background: url(./image/Twitter\ Icon.png) no-repeat center;
+}
+
+.figure .cover3 .circle:nth-of-type(3) {
+    background: url(./image/Instagram\ Icon.png) no-repeat center;
+}
+
+.figure:hover .cover3 {
+    opacity: 0.5;
+}
+
+#part6 {
+    height: 700px;
+    width: 1600px;
+}
+
+#part6 .leftCol input {
+    width: 364px;
+    height: 50px;
+    display: flex;
+    margin: 30px auto;
+    color: #838383;
+    font-size: 14px;
+    border: 2px solid #eeeeee;
+}
+
+#part6 .leftCol textarea {
+    height: 144px;
+    width: 364px;
+    resize: none;
+    margin: 0 auto;
+    border: 2px solid #eeeeee;
+    font-size: 14px;
+}
+
+#part6 .leftCol input:nth-of-type(3) {
+    width: 370px;
+    background: black;
+    color: white;
+    border: 1px solid black;
+}
+
+#part6 .leftCol {
+    text-align: center;
+    height: 560px;
+    width: 470px;
+    float: left;
+    border: 1px solid #eeeeee;
+    margin-top: 70px;
+    margin-left: 315px;
+    margin-right: 130px;
+}
+
+.leftCol h3 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#part6 .rightCol {
+    width: 360px;
+    height: 560px;
+    float: left;
+}
+
+.rightCol h1 {
+    font-size: 42px;
+    font-weight: lighter;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
+.rightCol > p {
+    color:#838383;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-bottom: 65px;
+}
+
+.rightCol .contact {
+    margin-top: 30px;
+}
+
+.rightCol .contact p {
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.rightCol .contact img {
+    float: left;
+    margin: 0 15px 15px 0;
+}
+
+footer {
+    height: 410px;
+    width: 1600px;
+    color: white;
+    background: black;
+    opacity: 0.9;
+}
+
+footer .Cols {
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin:  0 auto;
+    padding-top: 80px;
+}
+
+footer .Cols .Col {
+    width: 300px;
+}
+
+footer .Cols .Col h3 {
+    font-size: 14px;
+    opacity: 0.9;
+    letter-spacing: 2px;
+}
+
+footer .Cols .Col p {
+    font-size: 16px;
+    opacity: 0.3;
+    line-height: 2.8em;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+
+footer .Cols .Col:nth-of-type(4) p {
+    line-height: 1.5em;
+}
+
+footer .Cols .Col img {
+    margin-right: 25px;
+    margin-top: 25px;
+    opacity: 0.3;
+}
+
+
+
+
+
+
+
+

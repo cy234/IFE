@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第十二天到第十五天：复杂页面实现</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside>
+            <div class="base base_active">
+                <div class="item1">
+                    <img src="image/Item1.png" alt="plane_icon">
+                </div>
+            </div>
+            <div class="base">
+                <div class="item2">
+                    <img src="image/Item2.png" alt="rocket_icon">
+                </div>
+            </div>
+            <div class="base">
+                <div class="item3">
+                    <img src="image/Item3.png" alt="gamepad_icon">
+                </div>
+            </div>
+            <div class="base">
+                <div class="item4">
+                    <img src="image/PlusIcon.png" alt="plus_icon">
+                </div>
+            </div>
+            <footer>
+                <input name="grid" type="button">
+                <input name="settings" type="button">
+            </footer>
+        </aside>
+        <nav>
+            <div class="container">
+                <div class="title">
+                    <label>MENU
+                        <input name="settings" type="button">
+                    </label>
+                </div>
+                <div class="select_list">
+                    <ul>
+                        <li>Overview
+
+                        </li>
+                        <li>Sales
+                            <span class="unsaw">54</span>
+                        </li>
+                        <li>Your Staff
+
+                        </li>
+                        <li>Analytics &amp; Targeting
+
+                        </li>
+                        <li>What's New
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="title">
+                    <label>YOUR PRODUCTS
+                        <input name="settings" type="button">
+                    </label>
+                    <div class="select_list">
+                        <ul>
+                            <li>
+                                <img src="image/Books.png" alt="">Books
+
+                            </li>
+                            <li>
+                                <img src="image/Tutorials.png" alt="">Tutorials
+
+                            </li>
+                            <li>
+                                <img src="image/Painting.png" alt="">Stocks
+
+                            </li>
+                            <li>
+                                <img src="image/Chart.png" alt="">Infographics
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="title">
+                    <label>DASHBOARO
+                        <input name="settings" type="button">
+                    </label>
+                </div>
+                <div class="select_list">
+                    <ul>
+                        <li class="active_li">Messages
+                            <span class="unsaw">21</span>
+                        </li>
+                        <li>Connections
+
+                        </li>
+                        <li>Integrations
+                            <span class="warning">
+                                <img src="image/alert.png" alt="">
+                            </span>
+                        </li>
+                        <li>Account Settings
+
+                        </li>
+                        <li>App Settings
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <footer>
+                <p>Monthly Goals</p>
+                <p>$580/$3200</p>
+                <!-- <meter value="580" min="0" max="3200" optimum="3200"></meter> -->
+                <div class="progress_bar">
+                    <div class="occupy"></div>
+                </div>
+            </footer>
+        </nav>
+        <div class="main">
+            <header>
+                <h2>Messages</h2>
+                <div id="user">
+                    <div class="user_image">
+
+                        <img src="image/Status.png" alt="mark">
+                    </div>
+                    <div class="user_id">
+                        <h4 id="user_name">Jordan J.</h4>
+                        <p>Administrator</p>
+                    </div>
+                    <input name="user" type="button">
+                </div>
+            </header>
+            <div class="contact">
+                <div class="banner">
+                    <div class="search_div">
+                        <div id="obj_search">
+                            <input placeholder="Search" type="text">
+                            <input value="" type="submit">
+                        </div>
+                    </div>
+                    <div class="obj_list">
+                        <div class="item active_item">
+                            <div class="circle"></div>
+                            <img src="image/Bessie.png" alt="item1">
+                            <h3>Bessil Berry</h3>
+                            <p>3m</p>
+                            <p>Twitter</p>
+                            <p>
+                                I pay for the 4Mb/sec down, 512 Kb/sec up service
+                                <br> from O2. In fact, it's relatively quick, and stable...
+                            </p>
+                            <span>4</span>
+                        </div>
+                        <div class="item">
+                            <img src="image/Victor.png" alt="item2">
+                            <h3>Victor Weber</h3>
+                            <p>8m</p>
+                            <p>Adobe</p>
+                            <p>
+                                I shared this on my fb wall a few mnoths back, ans I
+                                <br> thought I'd share it here again because it's such a great...
+                            </p>
+                        </div>
+                        <div class="item">
+                            <img src="image/Dustic.png" alt="item2">
+                            <h3>Dustin Benson</h3>
+                            <p>Yesterday</p>
+                            <p>Facebook</p>
+                            <p>
+                                If there is anyone who needs an invitation please add
+                                <br> yourself in the comments of this post!
+                            </p>
+                        </div>
+                        <div class="item">
+                            <img src="image/Stephen.png" alt="item3">
+                            <h3>Stephen Shelton</h3>
+                            <p>13 Jun</p>
+                            <p> Snapchat</p>
+                            <p>
+                                Yes, p2p traffic is often filtered(QoSed). Although i do
+                                <br> use BT on O2 wires, and in good days dl speed...
+                            </p>
+                        </div>
+                        <div class="item">
+                            <img src="image/Sally.png" alt="item4">
+                            <h3>Sally Willis</h3>
+                            <p>12 Jun</p>
+                            <p>Twitter</p>
+                            <p>
+                                Yes, it's O2:'internet extreme', which is no longer
+                                <br> offered.
+                            </p>
+                        </div>
+                        <div class="item">
+                            <img src="image/Robert.png" alt="item5">
+                            <h3>Robert Patton</h3>
+                            <p>9 Jun</p>
+                            <p>A Team</p>
+                            <p>
+                                I change my serive from this 4Mb plan to their much
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatting_detail">
+                    <div class="chat_title">
+                        <h3>Bessie Berry</h3>
+                        <div class="circle"></div>
+                        <div class="actions">
+                            <input name="user" type="button">
+                            <input name="upload" type="button">
+                            <input name="trash" type="button">
+                        </div>
+                        <div class="pages">
+                            <p>1 of 28</p>
+                            <div class="changes">
+                                <input name="pre_page" type="button">
+                                <input name="next_page" type="button">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat_contact">
+
+                        <div class="chat_item">
+
+                            <div class="obj_image"></div>
+                            <h3>Bessie Berry</h3>
+                            <p>8:31 AM</p>
+                            <p>
+                                Hi guys lve got the O2 package and have really slow internet. A speed check online said i can et 3mbps but it seems more
+                                like 0.5 these days, just freezing and taking ages to open pages and open a udio files for
+                                example. I have decided to switch to the UPC package which offers 10mbps but do you think
+                                I will get it?
+                            </p>
+                        </div>
+
+                        <div class="user_item">
+                            <div class="user_image"></div>
+                            <h3>Jordan Jackson</h3>
+                            <p>8:31 AM</p>
+                            <p>
+                                I have internet for 9 month and nevere could benifit from the full capacity of 5Mbit/s as it is filtered by O2 when it detect
+                                traffic on public p2p sharing in my situation all my internet speed slows to 512Kbit/s. I
+                                never had 400KB/s on when downloading from p2p public servers like torrent emule etc. I downoad
+                                with 500KB/s from private trakers instead. So conlcusion O2 block traffic on p2p connections.
+                                I have made hundreds of test in Italy and Swweden and Romania with the same file to doanload
+                                with the same setting and same antivirus and just needed to open ports in firewall and forward
+                                same ports and the speed was at full capacity in 1 minute, here in 9 month never had this
+                                luck.
+                            </p>
+                        </div>
+                        <div class="chat_item">
+                            <div class="date">
+                                <p>Tuesday</p>
+                            </div>
+                            <div class="obj_image"></div>
+                            <h3>Bessie Berry</h3>
+                            <p>8:31 AM</p>
+                            <p>
+                                Funny comparison, so would the proper antivirus not slow down the internet as much or do you mean a freeble doenst protect
+                                the computer from viruses?
+                            </p>
+                        </div>
+                        <div class="user_item">
+
+                            <div class="user_image"></div>
+                            <h3>Jordan Jackson</h3>
+                            <p>8:31 AM</p>
+                            <p>
+                                I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems. In fact, it's rela- tively quick,
+                                and stable. It's not perfect, but I really don't have issues, as long as I keep track of
+                                what I'm doing on it. I max ou at about 3Mb/sec down, and 350 Kb/sec up. Probably because
+                                of a noisy telephone line, not because I'm being throttled. When my uploads go over 25 KB/sec(note,bytes,not
+                                bits),my download speed suffers. This is expected, as downloads require upload bandwidth
+                                as well.
+                            </p>
+                            <div class="photos">
+                                <div class="enlarge">
+                                    <div class="cover">
+                                        <div class="circle">
+                                            <img src="image/Openicon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <img src="image/Sky.png" alt="">
+                                </div>
+                                <div class="enlarge">
+                                    <div class="cover">
+                                        <div class="circle">
+                                            <img src="image/Openicon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <img src="image/Mount.png" alt="">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="chat_item">
+                            <div class="date">
+                                <p>New Messages</p>
+                            </div>
+                            <div class="obj_image"></div>
+                            <h3>Bessie Berry</h3>
+                            <p>8:31 AM</p>
+                            <p>
+                                I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable. It's not perfect,
+                                but I really don't have issues, as long as I keep track of what I'm doing on it.
+                            </p>
+                            <div class="new_answer">
+                                <input name="add" value="" type="submit">
+                                <input name="add_text" value="Well, kinda both :) but more of that second option, i've seen many systems infected and crawling with"
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>

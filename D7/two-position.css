@@ -1,0 +1,59 @@
+/* absolute */
+.demand1{
+    margin-bottom: 10px;
+    height: 200px; 
+    border: 1px solid #dddddd;
+    position: relative;
+ }
+ .left1{
+     position: absolute;
+     top: 0;
+     left:0;
+     width: 30%;
+     background: #66bb33;
+     height: 200px;
+ }
+ .right1{
+     position: absolute;
+     top: 0;
+     left: 30%;
+     right:0;
+     height: 200px;
+    
+ }
+/* absolute+margin */
+ .demand2{
+     margin-bottom: 10px;
+     height: 200px; 
+     border: 1px solid #dddddd;
+     position: relative;
+  }
+ .left2{
+    position: absolute;
+    height: 200px;
+    width: 360px;
+ }
+ .right2{
+     margin-left: 360px;
+     background: #66bb33;
+     height: 200px;
+ }
+ /* table */
+ .demand3{
+     margin-bottom: 10px;
+     height: 200px; 
+     border: 1px solid #dddddd;
+     display: table; 
+     width: 100%;  
+ }
+ 
+ .left3{
+    height:200px;
+    background: #66bb33;
+    display: table-cell;
+ }
+ .right3{
+     height: 200px;
+     width: 360px;
+     display: table-cell;
+ }
