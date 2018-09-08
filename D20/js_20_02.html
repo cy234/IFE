@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    <script>
+        var school=document.querySelector("#school");
+        var company=document.querySelector("#company");
+        function changeschool(){
+            document.querySelector("#school-select").setAttribute("style","display: block;");
+            document.querySelector("#company-select").setAttribute("style","display: none;");
+        }
+        function changecompany(){
+            document.querySelector("#school-select").setAttribute("style","display: none;");
+            document.querySelector("#company-select").setAttribute("style","display: block;");
+
+        }
+        school.addEventListener("click",changeschool);
+        company.addEventListener("click",changecompany);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十到第二十一天：让你和页面对话</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <input id="name" type="text">    
+    <button id="submit-btn">Submit</button>
+    <script>
+        var sub=document.querySelector('#submit-btn');
+        function submit(){
+            var text=document.querySelector("#name");
+            console.log(text.value);
+        }
+        function keydown(event){
+           switch(event.keyCode){
+               case 13:   //回车键
+               submit();
+               break;
+               case 27:   //esc键
+               var text=document.querySelector('#name');
+               text.value='';
+               break;
+           }
+        }
+        sub.addEventListener('click',submit);
+        document.addEventListener('keydown',keydown);
+    </script>
+</body>
+</html>

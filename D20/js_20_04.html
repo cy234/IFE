@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十到第二十一天：让你和页面对话</title>
+</head>
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var button=document.querySelector('button');
+        button.onclick=function(){
+            switch(button.id){
+                
+                case 'fade-btn':
+                var fade=document.querySelector('#fade-obj');
+                fade.style.opacity=1;
+                num=1;  //设num 有时候opacity解析错误
+                var t=setInterval(function(){
+                    num-=0.1;
+                    fade.style.opacity=num;
+                    button.disabled=true;
+                    console.log(num);
+                    if(fade.style.opacity<=0){
+                        clearInterval(t);
+                        button.disabled=false;
+                        button.innerText='淡入';
+                        button.id='fade-btn-show';
+                    
+                }},300);
+                break;
+                case 'fade-btn-show':
+                var fade=document.querySelector('#fade-obj');
+                console.log(fade.style.opacity);
+                fade.style.opacity=0;
+                var s=setInterval(function(){
+                    if(num<1){
+                    num+=0.1;
+                    fade.style.opacity=num;
+                    button.disabled=true;
+                    }
+                    if(num==1){
+                        clearInterval(s);
+                        button.disabled=false;
+                        button.innerText='淡出';
+                        button.id='fade-btn';
+                    }
+                },300);
+                break;
+            }
+        }
+    </script>	  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS Sprite帧动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #erikface {
+            width: 480px;
+            height: 480px;
+            margin: 0 auto;
+            background-image: url("erik.jpg");
+            background-repeat: repeat-y;
+            background-position: 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="erikface" title="百度EFE团队Web前端主任架构师"></div>
+    <script>
+        var pos=document.querySelector('#erikface');
+        var i=0;
+        function Changeimg(){
+            i-=480;
+            pos.style.backgroundPosition="0px "+i+"px";
+            console.log(pos.style.backgroundPosition);
+        }
+        function Start(){
+            setInterval("Changeimg()",100);
+        }
+        window.onload=function(){
+            Start();
+        }
+    </script>
+</body>
+</html>
