@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十二到第二十四天：JavaScript里的居民们</title>
+</head>
+
+<body>
+
+    <script>
+    /*
+     实现一个字符串头尾去除空格的函数注意需要去除的空格，包括全角、半角空格暂时不需要学习和使用正则表达式的方式
+    */
+        function diyTrim(str) {
+            var result = "";
+            var i=0,j=str.length-1;
+            while(str.indexOf(" ",i)==i||str.indexOf("　",i)==i){
+                i++;
+            }
+            while(str.indexOf(" ",j)==j||str.indexOf("　",j)==j){
+                j--;
+            }
+            result=str.slice(i,j+1);
+            return result;
+        }
+
+        // 测试用例
+        console.log(diyTrim(' a f b    ')); // ->a f b
+        console.log(diyTrim('    ffdaf    ').length); // ->ffdaf
+        console.log(diyTrim('1    ').length); // ->1
+        console.log(diyTrim('　　f').length); // ->f
+        console.log(diyTrim('  　  a f b 　　 ').length); // ->a f b
+        console.log(diyTrim(' ')); // ->
+        console.log(diyTrim('　')); // ->
+        console.log(diyTrim('')); // ->
+
+        /*
+        去掉字符串str中，连续重复的地方
+        */
+        function removeRepetition(str) {
+        var result = "";
+        for(let i=0;i<str.length;i++){
+            for(let j=i+1;j<str.length;j++){
+                if(str.charAt(j)!=str.charAt(i)){
+                    break;
+                }else{
+                    i++;
+                }
+            }
+            result+=str.charAt(i);
+        }
+        return result;
+        }
+        //测试用例
+        console.log(removeRepetition("aaa")); // ->a
+        console.log(removeRepetition("abbba")); // ->aba
+        console.log(removeRepetition("aabbaabb")); // ->abab
+        console.log(removeRepetition("")); // ->
+        console.log(removeRepetition("abc")); // ->abc
+
+    </script>
+</body>
+
+</html>

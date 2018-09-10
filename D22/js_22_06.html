@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数组与栈实现</title>
+</head>
+
+<body>
+    <input id="stack-input" type="text">
+    <!-- <p id="stack-cont">栈内容：apple-&gt;pear</p> -->
+    <p id="stack-cont">栈内容：apple&lt;-pear</p>
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>
+
+    <script>
+
+        var stack = ["apple", "pear"];
+        var p=document.querySelector("#stack-cont");
+        document.querySelector("#push-btn").onclick = function(){
+            var item=document.querySelector("#stack-input").value;
+            // stack.push(item);
+            stack.unshift(item);
+            // p.innerText= stack.join("->");
+            p.innerText= stack.join("<-");
+        }
+        document.querySelector("#pop-btn").onclick = function(){
+            // stack.pop();
+            stack.shift();
+            // p.innerText = stack.join("->");
+            p.innerText= stack.join("<-");
+        }
+        document.querySelector("#font-btn").onclick = function(){
+            if(stack.length){
+                // console.log(stack[stack.length-1]);
+                console.log(stack[0]);
+            }
+            else{
+                console.log("栈为空");
+            }
+        }
+        document.querySelector("#empty-btn").onclick = function(){
+            if(!stack.length){
+                console.log("栈为空");
+            }else{
+                console.log("栈不为空");
+            }
+        }
+
+        
+
+    </script>
+
+
+</body>
+
+</html>

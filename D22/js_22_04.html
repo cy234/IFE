@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十二到第二十四天：JavaScript里的居民们</title>
+</head>
+
+<body>
+
+    <script>
+        var tree = {
+            "id": 0,
+            "name": "root",
+            "left": {
+                "id": 1,
+                "name": "Simon",
+                "left": {
+                    "id": 3,
+                    "name": "Carl",
+                    "left": {
+                        "id": 7,
+                        "name": "Lee",
+                        "left": {
+                            "id": 11,
+                            "name": "Fate"
+                        }
+                    },
+                    "right": {
+                        "id": 8,
+                        "name": "Annie",
+                        "left": {
+                            "id": 12,
+                            "name": "Saber"
+                        }
+                    }
+                },
+                "right": {
+                    "id": 4,
+                    "name": "Tony",
+                    "left": {
+                        "id": 9,
+                        "name": "Candy"
+                    }
+                }
+            },
+            "right": {
+                "id": 2,
+                "name": "right",
+                "left": {
+                    "id": 5,
+                    "name": "Carl",
+                },
+                "right": {
+                    "id": 6,
+                    "name": "Carl",
+                    "right": {
+                        "id": 10,
+                        "name": "Kai"
+                    }
+                }
+            }
+        }
+
+        // 假设id和name均不会重复，根据输入name找到对应的id
+        //前序遍历 堆栈是为了能返回上一级
+        function findIdByName(name) {
+            var bt = tree;
+            var s = new Array();
+            while (bt || s.length != 0) {
+                while (bt) {
+                    if (bt.name == name) { return bt.id; }
+                    s.push(bt);
+                    bt=bt.left;
+                }
+                if (s.length)
+                {
+                    bt=s.pop();
+                    bt=bt.right;
+                }
+            }
+            return "未找到姓名";
+        }
+
+        console.log(findIdByName("Kai"));
+        console.log(findIdByName("Lee"));
+        console.log(findIdByName("Simon"));
+        console.log(findIdByName("Saber"));
+        console.log(findIdByName("right"));
+
+        // 假设id和name均不会重复，根据输入id找到对应的name
+        //中序遍历
+        function findNameById(id) {
+            var bt = tree;
+            var s = new Array();
+            while (bt || s.length != 0) {
+                if (bt) {
+                    s.push(bt);
+                    bt = bt.left;
+                }
+                else {//没有左节点，则根节点出栈
+                    bt = s.pop();
+                    if (bt.id == id) { return bt.name; }
+                    bt = bt.right;
+                }
+            }
+            return "未找到ID";
+        }
+        console.log(findNameById("11"));
+        console.log(findNameById("5"));
+        console.log(findNameById("3"));
+        console.log(findNameById("9"));
+        console.log(findNameById("8"));
+        console.log(findNameById("4"));
+        console.log(findNameById("5"));
+        console.log(" ");
+
+        // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+        function getListWithDLR() {
+            var bt = tree;
+            var s = new Array();
+            while (bt || s.length != 0) {
+                while (bt) {//边遍历边打印
+                    console.log(bt.name);
+                    s.push(bt);
+                    bt = bt.left;
+                }
+                if (s.length) {
+                    bt = s.pop();
+                    bt = bt.right;
+                }
+            }
+
+        }
+        getListWithDLR();
+
+        // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+        function getListWithLDR() {
+            var bt = tree;
+            var s = new Array();
+            while (bt || s.length != 0) {
+                while (bt) {
+                    s.push(bt);
+                    bt = bt.left;
+                }
+                if (s.length) {
+                    bt = s.pop();
+                    console.log(bt.name);
+                    bt = bt.right;
+                }
+            }
+        }
+        getListWithLDR();
+
+        // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+        function getListWithLRD() {
+            var bt = tree;
+            var s = new Array();
+
+            while (bt) {
+                s.push(bt);
+                bt = bt.left;
+            }
+            while (s.length) {
+                if (!bt.right || bt.right == last) { //根节点被访问的前提是无右子树或右子树被访问
+                    console.log(bt.name);
+                    last = bt;
+                }
+                else {//有右子树,先访问右子树
+                    s.push(bt);
+                    bt = bt.right;
+                    while (bt) {  //走到最左
+                        s.push(bt);
+                        bt = bt.left;
+                    }
+                }
+            }
+        }
+        getListWithDLR();
+    </script>
+</body>
+
+</html>
