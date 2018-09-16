@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十五天:日期选择</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <select id="year-select" onchange="selectYear(this.value)">
+        <option value="">选择 年</option>
+    </select>
+
+    <select id="month-select" onchange="selectMonth(this.value)">
+        <option value="">选择 月</option>
+    </select>
+
+    <select id="day-select" onchange="selectDay(this.value)"> <!--让选框有值不可选可用disable属性-->
+        <option value="">选择 日</option>
+    </select>
+
+    <select id="hour-select" onchange="selectHour(this.value)">
+        <option value="">选择 时</option>
+    </select>
+
+    <select id="minute-select" onchange="selectMinute(this.value)">
+        <option value="">选择 分</option>
+    </select>
+
+    <select id="second-select" onchange="selectSecond(this.value)">
+        <option value="">选择 秒</option>
+    </select>
+
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+    <script>
+        var differ_d=0,differ_h=0,differ_m=0,differ_s=0,y,m,d,h,min,s;
+        function DateStart() {
+            //月份对应天数
+            MonthHead = [31,28,31,30,31,30,31,31,30,31,30,31]; 
+
+            //年
+            y=new Date().getFullYear();
+            for(var i=(y-50);i<(y+50);i++){   //前后50年
+            document.querySelector("#year-select").options.add(new Option(" "+i+"年",i));  //添加新的option对象
+            }
+            //月
+            for(var i=1;i<13;i++){
+                document.querySelector("#month-select").options.add(new Option(" "+i+"月",i));
+            }
+            //时
+            for(var i=0;i<24;i++){
+
+                document.querySelector("#hour-select").options.add(new Option(" "+i+"时",i));
+            }
+            //分
+            for(var i=0;i<60;i++){
+                document.querySelector("#minute-select").options.add(new Option(" "+i+"分",i));
+            }
+            //秒
+            for(var i=0;i<60;i++){
+                document.querySelector("#second-select").options.add(new Option(" "+i+"秒",i));
+            }
+            //默认当天日期
+            document.querySelector("#year-select").value=y;
+            document.querySelector("#month-select").value=new Date().getMonth()+1;  
+            n=MonthHead[new Date().getMonth()];
+            if (new Date().getMonth()==1 && IsPinYear(yearvalue)) n++;   
+            writeDay(n);
+            document.querySelector("#day-select").value=new Date().getDate();
+            document.querySelector("#hour-select").value=new Date().getHours();
+            document.querySelector("#minute-select").value=new Date().getMinutes();
+            document.querySelector("#second-select").value=new  Date().getSeconds();
+
+        }
+        DateStart();
+        document.querySelector("#result-wrapper").innerText="现在距离"+y+"年"+m+"月"+d+"日星期"+weekday(y,m,d)+" ";
+
+        function selectYear(s){//改变年份
+            m=document.querySelector("#month-select").options[document.querySelector("#month-select").selectedIndex].value;
+            n=MonthHead[m-1]; //得到相应的天数
+            if(m==2&&IsPinYear(s))
+            n=n+1;
+            writeDay(n);
+            show();
+        }
+
+        function selectMonth(s){//改变月份
+            y=document.querySelector("#year-select").options[document.querySelector("#year-select").selectedIndex].value;
+            n=MonthHead[s-1];
+            if(s==2&&IsPinYear(y))
+            n=n+1;
+            writeDay(n);
+            show();
+
+        }
+
+        function selectDay(s){
+            show();
+
+        }
+
+        function selectHour(s){
+            show();
+
+        }
+
+        function selectMinute(s){
+            show();
+
+        }
+        function selectSecond(s){
+            show();
+
+        }
+        function show(){
+            y=document.querySelector("#year-select").options[document.querySelector("#year-select").selectedIndex].value;
+            m=document.querySelector("#month-select").options[document.querySelector("#month-select").selectedIndex].value;
+            d=document.querySelector("#day-select").options[document.querySelector("#day-select").selectedIndex].value;
+            h=document.querySelector("#hour-select").options[document.querySelector("#hour-select").selectedIndex].value;
+            min=document.querySelector("#minute-select").options[document.querySelector("#minute-select").selectedIndex].value;
+            s=document.querySelector("#second-select").options[document.querySelector("#second-select").selectedIndex].value;
+            
+            differ_d=((new Date()-new Date(y,m,d))/(24*60*60*1000));
+            if(differ_d>=0){
+                differ_d=Math.floor(differ_d);
+                differ_h=new Date((new Date()-new Date(y,m,d))%(24*60*60*1000)).getHours();
+                differ_m=new Date((new Date()-new Date(y,m,d))%(24*60*60*1000)).getMinutes();
+                differ_s=new Date((new Date()-new Date(y,m,d))%(24*60*60*1000)).getSeconds();
+                document.querySelector("#result-wrapper").innerText="现在距离"+y+"年"+m+"月"+d+"日星期"+weekday(y,m,d)+" "+checktime(h)+":"+checktime(m)+":"+checktime(s)+"已经过去"+differ_d+"天"+differ_h+"小时"+differ_m+"分"+differ_s+"秒"; 
+            }
+            else {
+                differ_d=Math.floor((new Date(y,m,d)-new Date())/(24*60*60*1000));
+                differ_h=new Date((new Date(y,m,d)-new Date())%(24*60*60*1000)).getHours();
+                differ_m=new Date((new Date(y,m,d)-new Date())%(24*60*60*1000)).getMinutes();
+                differ_s=new Date((new Date(y,m,d)-new Date())%(24*60*60*1000)).getSeconds();
+                document.querySelector("#result-wrapper"),innerText="现在距离"+y+"年"+m+"月"+d+"日星期"+weekday(y,m,d)+" "+checktime(h)+":"+checktime(m)+":"+checktime(s)+"还有"+differ_d+"天"+differ_h+"小时"+differ_m+"分"+differ_s+"秒"; 
+            }   
+        }
+          
+        
+
+        //判断闰年
+        function IsPinYear(y){
+            return (y%4==0 && (y%100 !=0 || y % 400==0));
+        }
+        function writeDay(n){
+            var e=document.querySelector("#day-select");
+            optionClear(e);    //根据年月的选择相应变化
+            for(var i=0;i<(n+1);i++){
+                e.options.add(new Option(" "+i+"日",i));
+            }
+        }
+        function optionClear(e){
+            e.options.length=1;
+        }
+        //根据日期选择得出星期
+        function weekday(y,m,d){
+            var weekday=["日","一","二","三","四","五","六"];
+            var date=y+"-"+m+"-"+d;
+            return weekday[new Date(date).getDay()];
+        }
+        function checktime(e){
+            if(e<10){
+                return "0"+e;
+            }
+            else return e;
+        }
+
+    </script>
+</body>
+
+</html>
