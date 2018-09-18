@@ -19,7 +19,7 @@
             while(str.indexOf(" ",i)==i||str.indexOf("　",i)==i){
                 i++;
             }
-            while(str.indexOf(" ",j)==j||str.indexOf("　",j)==j){
+            while(str.lastIndexOf(" ",j)==j||str.lastIndexOf("　",j)==j){
                 j--;
             }
             result=str.slice(i,j+1);
