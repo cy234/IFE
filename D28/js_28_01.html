@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>第二十八天：邮箱提示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            padding: 0;
+            font-size: 14px;
+        }
+        #email-input {
+            height: 30px;
+            width: 240px;
+        }
+        ul {
+            margin-top: 0;
+            width: 244px; 
+            border-left:1px solid #eee;border-right: 1px solid #eee;border-bottom: 1px solid #eee;}
+        li {
+            list-style: none;
+            padding: 4px 0 4px 4px;
+            color: #696969;
+        }
+        li:hover{
+            background: rgb(10, 229, 245);
+        }
+        ul .active{  
+            background: pink;
+        } 
+    
+    </style>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+
+    </div>
+
+    <script>
+        var nowSelectTipIndex=0;  //当前选中的li
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        var li= document.querySelectorAll("li");
+        var input= document.querySelector("#email-input");
+    
+        var HtmlUtil = {
+            /*1.用浏览器内部转换器实现html转码*/
+            htmlEncode: function (html) {
+                //1.首先动态创建一个容器标签元素，如DIV
+                var temp = document.createElement("div");
+                //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+                (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html);
+                //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+                var output = temp.innerHTML;
+                temp = null;
+                return output;
+            },
+            /*2.用浏览器内部转换器实现html解码*/
+            htmlDecode: function (text) {
+                //1.首先动态创建一个容器标签元素，如DIV
+                var temp = document.createElement("div");
+                //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+                temp.innerHTML = text;
+                //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+                var output = temp.innerText || temp.textContent;
+                temp = null;
+                return output;
+            },
+            /*3.用正则表达式实现html转码*/
+            htmlEncodeByRegExp: function (str) {
+                var s = "";
+                if (str.length == 0) return "";
+                s = str.replace(/&/g, "&");
+                s = s.replace(/</g, "<");
+                s = s.replace(/>/g, ">");
+                s = s.replace(/ /g, " ");
+                s = s.replace(/\'/g, "'");
+                s = s.replace(/\"/g, '"');
+                return s;
+            },
+            /*4.用正则表达式实现html解码*/
+            htmlDecodeByRegExp: function (str) {
+                var s = "";
+                if (str.length == 0) return "";
+                s = str.replace(/&/g, "&");
+                s = s.replace(/</g, "<");
+                s = s.replace(/>/g, ">");
+                s = s.replace(/ /g, " ");
+                s = s.replace(/'/g, "\'");
+                s = s.replace(/"/g, "\"");
+                return s;
+            }
+        };
+
+    
+       input.oninput = function () {  
+            IsShow();
+            for (var i = 0; i < li.length; i++) {
+                li[i].onclick = function () {
+                   input.value = this.innerText;
+                    //清除li
+                    var n = document.querySelector("#email-sug-wrapper").childNodes;
+                    for (var i = n.length - 1; i >= 0; i--) {
+                        document.querySelector("#email-sug-wrapper").removeChild(n[i]);
+                    }
+                }
+            }
+        }
+        function hints() {  //生成提示框中的提示内容并添加
+            var n = document.querySelector("#email-sug-wrapper").childNodes;
+            for (var i = n.length - 1; i >= 0; i--) {
+                document.querySelector("#email-sug-wrapper").removeChild(n[i]);
+            }
+            var str = input.value;
+            str= HtmlUtil.htmlEncode(str);
+            console.log(str);
+            str = diyTrim(str);
+            if (str.indexOf("@") != -1) {
+                for (var i = 0; i < 5; i++) {
+
+                    if (postfixList[i].indexOf(str.substr(str.indexOf("@") + 1, str.length - str.indexOf("@"))) == 0) {
+                        var li = document.createElement("li");
+                        li.innerHTML = str.substr(0, str.indexOf("@") + 1) + postfixList[i];
+                        document.querySelector("#email-sug-wrapper").appendChild(li);
+                    }
+                }
+                if (!document.querySelector("li")) {
+                    for (var j = 0; j < 5; j++) {
+                        var li = document.createElement("li");
+                        li.innerHTML = str.substr(0, str.indexOf("@") + 1) + postfixList[j];
+                        console.log(li.innerText.length);
+                        document.querySelector("#email-sug-wrapper").appendChild(li);
+                    }
+                }
+            }
+            else {
+                for (var j = 0; j < 5; j++) {
+                    var li = document.createElement("li");
+                    li.innerHTML = HtmlUtil.htmlDecodeByRegExp(str + "@" + postfixList[j]);
+                    document.querySelector("#email-sug-wrapper").appendChild(li);
+                }
+            }
+           // var firstli=document.querySelectorAll("li")[0];
+           // firstli.className="active";   //默认第一个为被选择状态
+           document.querySelectorAll("li")[nowSelectTipIndex].classList.add('active');
+           console.log(nowSelectTipIndex);
+        }
+        function diyTrim(str) { //去掉前后空格
+            var result = "";
+            var i = 0, j = str.length - 1;
+            while (str.indexOf(" ", i) == i || str.indexOf("　", i) == i) {
+                i++;
+            }
+            while (str.lastIndexOf(" ", j) == j || str.lastIndexOf("　", j) == j) {
+                j--;
+            }
+
+            result = str.slice(i, j + 1);
+            return result;
+        }
+
+        function IsShow() { //控制email-sug-wrapper的显示/隐藏状态   
+            if (diyTrim(input.value) == "") {
+                document.querySelector("#email-sug-wrapper").style.display = "none";
+            } else {
+                //更新节点
+                document.querySelector("#email-sug-wrapper").style.display = "block";
+                hints();
+            }
+        }
+        //重置被选择状态(当按键不是上下回车键)
+        function resetActive(activeli,li) {
+            var i;
+            for(i=0;i<li.length;i++){
+                if(li[i]==activeli)
+                break;
+            }
+            if(i!=0){
+                activeli=li[0];
+            }
+        }
+        function resetActive1(){
+            nowSelectTipIndex=0;
+        }
+        
+        //监听上、下、回车键基于DOM
+        
+       /* document.querySelector("#email-input").onkeypress= function (e){
+            var activeli=document.querySelector(".active")
+            var li=document.querySelectorAll("li");
+            activeli.className="";
+            var x=e.keyCode||e.which;
+            console.log(x);
+            var a;
+            for(a=0;a<li.length;a++){
+                if(li[a]==activeli)
+                {
+                    break;
+                }
+            }
+            if(x==38){ //上键
+                if(a!=0){
+                    li[a-1].className="active";
+                }else{
+        
+                    li[li.length-1].className="active";
+                }
+            }
+            else if(x==40){ //下键
+                if(a!=li.length-1){
+                    console.log(li[1].className);
+                    a=a+1;
+                    li[a].className="active";
+                }else{
+                    li[0].className="active";
+                }
+            }
+            else if (x==13) { //回车键
+                document.querySelector("#email-input").value = activeli.innerText;
+                    //清除li
+                    var n = document.querySelector("#email-sug-wrapper").childNodes;
+                    for (var i = n.length - 1; i >= 0; i--) {
+                        document.querySelector("#email-sug-wrapper").removeChild(n[i]);
+                    }
+            }
+            else {
+                resetActive(activeli,li);
+            }
+        }
+        */
+        document.querySelector("#email-input").addEventListener('keydown',keyboardListener);
+        function keyboardListener (e){
+          var x=e.which||e.keyCode;
+          var li=document.querySelectorAll("li");
+          document.querySelector(".active").classList.remove("active");
+          if(x==38){
+               if(nowSelectTipIndex!=0){
+                   nowSelectTipIndex-=1;
+               }else{
+                   nowSelectTipIndex=li.length-1;
+               }
+          }
+          else if(x==40){
+              if(nowSelectTipIndex!=li.length-1){
+                  nowSelectTipIndex+=1;
+              }else {
+                  nowSelectTipIndex=0;
+              }
+          }
+          else if(x==13) {
+            input.value = li[nowSelectTipIndex].innerText;
+              nowSelectTipIndex=0;
+              var n = document.querySelector("#email-sug-wrapper").childNodes;
+              for (var i = n.length - 1; i >= 0; i--) {
+                        document.querySelector("#email-sug-wrapper").removeChild(n[i]);
+            }
+          }
+          else {
+              resetActive1();
+          }
+          li[nowSelectTipIndex].classList.add('active');
+        
+        }
+    </script>
+
+</body>
+
+</html>
