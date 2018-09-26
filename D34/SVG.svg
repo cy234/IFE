@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<!-- 线 -->
+<line x1="0" y1="10" x2="200" y2="10" style="stroke:rgb(99,99,99);stroke-width:2"/>
+<!-- 矩形 -->
+<rect x="20" y="20" width="100" height="100" style="fill:pink; stroke: rgb(255,0,0); stroke-width: 2"/>
+<!-- 圆 -->
+<circle cx="100" cy="200" r="40" style="fill: pink; "/>
+<!-- 文字 -->
+<text x="300" y="40" style="fill: red;">HELLO SVG</text>
+<!-- 花 -->
+<ellipse cx="300" cy="100" rx="20" ry="40" style=" fill:red ;"></ellipse>
+<ellipse cx="260" cy="140" rx="40" ry="20" style=" fill:red ;"></ellipse>
+<ellipse cx="340" cy="140" rx="40" ry="20" style=" fill:red ;"></ellipse>
+<ellipse transform="matrix(0.5663 -0.8242 0.8242 0.5663 -26.1962 304.9783)" cx="276.7" cy="177.4" rx="40" ry="20" style=" fill:red ;"/>
+<ellipse transform="matrix(-0.5209 -0.8536 0.8536 -0.5209 342.2351 546.8449)"  cx="324.6" cy="177.4" rx="40" ry="20" style=" fill:red ;"/>
+<path d="M 300 177 Q 300 300 320 350" stroke="green" stroke-width="5" fill="transparent"/>
+<!-- 树 -->
+<polygon points="100,300 50,400 70,400 30,500 70,500 70,600 130,600 130,500 170,500 130,400 150,400" style="fill:rgb(99,181,33);stroke:#000000;stroke-width:1 "/>
+</svg>
+
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+   <canvas id="line" width="200" height="50"></canvas> 
+   <canvas id="rect" width="100" height="100"></canvas>
+   <canvas id="circle" width="100" height="100"></canvas>
+   <canvas id="text" width="300" height="100"></canvas>
+   <canvas id="clock" width="400" height="400"></canvas>
+   <canvas id="cloud" width="500" height="400"></canvas>
+   <script>
+       window.onload=draw();
+       function draw(){
+           // 线
+           var line = document.getElementById("line");
+           if(line.getContext){
+               var ctx=line.getContext("2d");      
+           }
+           ctx.beginPath();
+           ctx.moveTo(20,20);
+           ctx.lineTo(180,20);
+           ctx.stroke();
+           // 矩形
+           var rect=document.getElementById("rect");
+           var drawRect=rect.getContext("2d");
+           drawRect.strokeRect(25,25,50,70);
+           // 圆形
+           var circle=document.getElementById("circle");
+           var drawCircle=circle.getContext("2d");
+           drawCircle.arc(50,50,40,Math.PI*2,0,true);
+           drawCircle.stroke();
+           // 文本
+           var text=document.getElementById("text");
+           var drawText=text.getContext("2d");
+           drawText.font="30px serif";
+           drawText.fillStyle="pink";
+           drawText.fillText('Hello Canvas',10,50);
+           // 时钟
+           var clock=document.getElementById("clock");
+           var drawClock=clock.getContext("2d");
+           drawClock.arc(150,150,80,Math.PI*2,0,true);
+           drawClock.moveTo(225,150);
+           drawClock.arc(150,150,75,Math.PI*2,0,true);
+           drawClock.stroke();
+           drawClock.beginPath();
+           drawClock.moveTo(225,150);
+           drawClock.arc(150,80,3,Math.PI*2,0,true);
+           drawClock.moveTo(225,150);
+           drawClock.arc(220,150,3,Math.PI*2,0,true);
+           drawClock.moveTo(225,150);
+           drawClock.arc(150,220,3,Math.PI*2,0,true);
+           drawClock.moveTo(225,150);
+           drawClock.arc(80,150,3,Math.PI*2,0,true);
+           drawClock.fill();
+           drawClock.beginPath();
+           drawClock.moveTo(150,80);
+           drawClock.lineTo(150,150);
+           drawClock.lineTo(185,185);
+           drawClock.lineWidth=2;
+           drawClock.lineCap="round";
+           drawClock.stroke();
+           drawClock.beginPath();
+           drawClock.moveTo(150,150);
+           drawClock.lineTo(160,190);
+           drawClock.lineWidth=5;
+           drawClock.strokeStyle="red";
+           drawClock.stroke();
+           // 云
+           var cloud=document.getElementById("cloud");
+           var drawCloud=cloud.getContext("2d");
+           drawCloud.moveTo(25,380);
+           drawCloud.quadraticCurveTo(20,300,100,290);
+           drawCloud.quadraticCurveTo(90,220,200,200);
+           drawCloud.quadraticCurveTo(350,100,350,250);
+           drawCloud.quadraticCurveTo(450,270,325,380);
+           drawCloud.quadraticCurveTo(300,400,25,380);
+           drawCloud.stroke();
+
+
+       }
+   </script>
+</body>
+</html>
